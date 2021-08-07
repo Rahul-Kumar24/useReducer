@@ -51,21 +51,21 @@ console.log('Enterd Email', emailState.value);
   },[])
 
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   const identifier = setTimeout(() => {
-  //     console.log('Effect1')
-  //     setFormIsValid(
-  //       enteredEmail.includes('@') && enteredPassword.trim().length > 6
-  //     );
-  //   },1000);
+    const identifier = setTimeout(() => {
+      console.log('Effect1')
+      setFormIsValid(
+        emailState.isValid && passwordState.isValid,
+      );
+    },1000);
 
-  //   return () =>{
-  //     console.log('Clineup')
-  //     clearTimeout(identifier);
-  //   }
+    return () =>{
+      console.log('Clineup')
+      clearTimeout(identifier);
+    }
   
-  // },[enteredEmail, enteredPassword])
+  },[emailState, passwordState]);
 
 
   const emailChangeHandler = (event) => {
@@ -73,19 +73,19 @@ console.log('Enterd Email', emailState.value);
     // setEnteredEmail(event.target.value);
     dispatchEmail({type:'USER_INPUT', val:event.target.value});
     console.log(event.target.value)
-    setFormIsValid(
-      emailState.isValid && passwordState.isValid
-    );
+    // setFormIsValid(
+    //   emailState.isValid && passwordState.isValid
+    // );
 
   };
-
+console.log('ahd')
   const passwordChangeHandler = (event) => {
     // setEnteredPassword(event.target.value);
     dispatchPassword({type:'USER_INPUT', val:event.target.value});
-    setFormIsValid(
-      // event.target.value.trim().length > 6 && emailState.value.includes('@')
-      emailState.isValid  && passwordState.isValid
-    );
+    // setFormIsValid(
+    //   // event.target.value.trim().length > 6 && emailState.value.includes('@')
+    //   emailState.isValid  && passwordState.isValid
+    // );
   };
 
   const validateEmailHandler = () => {
