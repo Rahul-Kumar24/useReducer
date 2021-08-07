@@ -33,7 +33,7 @@ const Login = (props) => {
 
   const [emailState, dispatchEmail]= useReducer(emailReducer,{
 
-    value:'rahul@gmail.com',
+    value:'',
      isValid:null
   });
 
